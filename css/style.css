@@ -495,6 +495,7 @@ button:focus {
 	top: 0;
 	width: 100%;
 	height: 100%;
+	padding: 0em;
 	text-align: left;
 	background: #fff;
 	-webkit-transition: -webkit-transform 0.8s;
@@ -506,6 +507,7 @@ button:focus {
 .content--open .content__item {
 	-webkit-transition: none;
 	transition: none;
+	overflow: scroll;
 }
 
 .content__item--current {
