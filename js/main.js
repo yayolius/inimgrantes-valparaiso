@@ -529,6 +529,7 @@
 	function playVideo(spaceref){
 		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
 		if(video){
+			video.currentTime = 0;
 			video.ontimeupdate = currentVideoPosition;
 			video.addEventListener('ended', slideToContent);
 			video.play();
@@ -538,8 +539,8 @@
 	function stopVideo(spaceref) {
 		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
 		if(video){
+			video.pause();
 			video.ontimeupdate = null;
-			video.stop();
 			video.removeEventListener('ended',slideToContent);
 		}
 	}
