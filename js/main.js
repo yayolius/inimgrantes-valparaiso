@@ -401,6 +401,7 @@
 	function openContent(spacerefval) {
 		// if one already shown:
 		if( isOpenContentArea ) {
+			stopVideo(spaceref);
 			hideSpace();
 			spaceref = spacerefval;
 			showSpace();
@@ -425,6 +426,9 @@
 		}
 		// svg area gets selected
 		classie.add(mallLevels[selectedLevel - 1].querySelector('svg > .map__space[data-space="' + spaceref + '"]'), 'map__space--selected');
+	
+		//video autoplays
+		playVideo(spaceref);
 	}
 
 	/**
@@ -475,6 +479,9 @@
 		if( isExpanded ) {
 			setNavigationState();
 		}
+		
+		stopVideo(spaceref);
+
 		isOpenContentArea = false;
 	}
 
@@ -519,6 +526,51 @@
 		classie.remove(containerEl, 'container--overflow');
 	}
 	
+	function playVideo(spaceref){
+		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
+		if(video){
+			video.ontimeupdate = currentVideoPosition;
+			video.addEventListener('ended', slideToContent);
+			video.play();
+		}
+	}
+
+	function stopVideo(spaceref) {
+		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
+		if(video){
+			video.ontimeupdate = null;
+			video.stop();
+			video.removeEventListener('ended',slideToContent);
+		}
+	}
+
+	function currentVideoPosition(){
+		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
+		if(video){
+			console.log(video.currentTime);
+
+		}
+	}
+
+	function slideToContent(){
+		
+		var cont = contentEl.querySelector('.content__item[data-space="' + spaceref + '"]');
+		scrollTo(cont,580,900);
+	}
+
+	function scrollTo(element, to, duration) {
+	    if (duration <= 0) return;
+	    var difference = to - element.scrollTop;
+	    var perTick = difference / duration * 10;
+
+	    setTimeout(function() {
+	        element.scrollTop = element.scrollTop + perTick;
+	        if (element.scrollTop === to) return;
+	        scrollTo(element, to, duration - 10);
+	    }, 10);
+	}
+
+
 	init();
 
 })(window);
