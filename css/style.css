@@ -93,6 +93,20 @@ button:focus {
 	margin: 0 0 0 1em;
 }
 
+.container .main_title{
+	font-size: 2.2em;
+    padding: .9em;
+    z-index: 999;
+    background-color: rgba(240, 240, 240, 0.8);
+    transition: all 0.5s ease-in;
+
+}
+
+.container.opened .main_title{
+	margin:0;
+	padding: 0.2em;
+	background-color: rgba(240, 240, 240, 1);
+}
 /* Top Navigation Style */
 
 .codrops-links {
@@ -166,8 +180,8 @@ button:focus {
 	perspective: 3500px;
 	-webkit-perspective-origin: 0% 50%;
 	perspective-origin: 0% 50%;
-	-webkit-transition: -webkit-transform 0.8s;
-	transition: transform 0.8s;
+	-webkit-transition: -webkit-transform 1.4s;
+	transition: transform 1.4s;
 	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
@@ -397,7 +411,8 @@ button:focus {
 /* Level nav */
 .mallnav {
 	position: absolute;
-	top: 0;
+	top: 50%;
+	margin-top: -77px;
 	right: 0;
 	text-align: center;
 	-webkit-transition: opacity 0.8s;
@@ -497,8 +512,8 @@ button:focus {
 	height: 100%;
 	padding: 0em;
 	text-align: left;
-	-webkit-transition: -webkit-transform 0.8s;
-	transition: transform 0.8s;
+	-webkit-transition: -webkit-transform 1.2s;
+	transition: transform 1.2s;
 	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
@@ -507,6 +522,7 @@ button:focus {
 	-webkit-transition: none;
 	transition: none;
 	overflow: scroll;
+	background-color: #ddd;
 }
 
 .content__item--current {
@@ -558,9 +574,16 @@ button:focus {
 	margin: 0 auto;
 /* 	max-width: 50vmax; */
 }
+.content__item-details video{
+	background: #000000;
+}
 
 .content__item--current .content__item-details {
 	opacity: 1;
+}
+
+.content__item_inner_content{
+	padding:30px;
 }
 
 .content__meta {
@@ -940,9 +963,7 @@ button:focus {
 		right: 0;
 		z-index: 1000;
 	}
-	.mallnav {
-		top: 4em;
-	}
+	
 	.container {
 		overflow: hidden;
 	}
@@ -956,4 +977,9 @@ button:focus {
 		padding-right: 4em;
 		text-align: left;
 	}
+}
+
+
+.closebutton{
+	z-index: 1001;
 }
