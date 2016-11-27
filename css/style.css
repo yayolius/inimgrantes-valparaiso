@@ -93,8 +93,6 @@ button:focus {
 	margin: 0 0 0 1em;
 }
 
-<<<<<<< HEAD
-=======
 .container .main_title{
 	font-size: 2.2em;
     padding: .9em;
@@ -302,21 +300,7 @@ button:focus {
 	transform: rotateZ(-20deg) rotateZ(45deg) rotateX(-70deg) translateZ(5vmin) translateX(5vmin) translateY(-10vmin);
 }
 
-.level--1::after {
-	content: 'L1';
-}
 
-.level--2::after {
-	content: 'L2';
-}
-
-.level--3::after {
-	content: 'L3';
-}
-
-.level--4::after {
-	content: 'L4';
-}
 
 .level:not(:first-child) {
 	position: absolute;
@@ -325,18 +309,18 @@ button:focus {
 }
 
 .level--2 {
-	-webkit-transform: translateZ(10vmin);
-	transform: translateZ(10vmin);
+	-webkit-transform: translateX(-40vmin) translateY(-20vmin) translateZ(3vmin) scale(3);
+	transform: translateX(2vmin) translateY(20vmin) translateZ(3vmin) scale(2) ;
 }
 
 .level--3 {
-	-webkit-transform: translateZ(20vmin);
-	transform: translateZ(20vmin);
+	-webkit-transform: translateX(2vmin) translateY(20vmin) translateZ(6vmin) scale(2);
+	transform: translateX(2vmin) translateY(20vmin) translateZ(6vmin) scale(2) ;
 }
 
 .level--4 {
-	-webkit-transform: translateZ(30vmin);
-	transform: translateZ(30vmin);
+	-webkit-transform: translateX(2vmin) translateY(20vmin) translateZ(10vmin) scale(2);
+	transform: translateX(2vmin) translateY(20vmin) translateZ(10vmin) scale(2) ;
 }
 
 
