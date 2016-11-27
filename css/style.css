@@ -222,10 +222,9 @@ button:focus {
 }
 
 .surroundings {
-	width: 192vmin;
-	/* double of mall map */
-	height: 128vmin;
-	margin: -64vmin 0 0 -96vmin;
+    width: 360vmin;
+    height: 410vmin;
+    margin: -174vmin 0 0 -116vmin;
 	pointer-events: none;
 	-webkit-transition: opacity 0.8s;
 	transition: opacity 0.8s;
@@ -255,8 +254,8 @@ button:focus {
 
 .surroundings,
 .levels {
-	-webkit-transform: rotateX(70deg) rotateZ(-45deg) translateZ(-15vmin);
-	transform: rotateX(70deg) rotateZ(-45deg) translateZ(-15vmin);
+	-webkit-transform: rotateX(60deg) rotateZ(-15deg) translateZ(-15vmin);
+	transform: rotateX(60deg) rotateZ(-15deg) translateZ(-15vmin);
 }
 
 .level {
