@@ -191,11 +191,6 @@
 		closeSearchCtrl.addEventListener('click', function() {
 			closeSearch();
 		});
-		
-		selectedLevel = 1;
-		isExpanded = true;
-		showAllLevels();
-
 	}
 
 	/**
@@ -235,38 +230,6 @@
 
 		// filter the spaces for this level
 		showLevelSpaces();
-	}
-
-	/**
-	 * Opens a level. The current level moves to the center while the other ones move away.
-	 */
-	function showLevelWithoutPins(level) {
-		if( isExpanded ) {
-			return false;
-		}
-		
-		// update selected level val
-		selectedLevel = level;
-
-		// control navigation controls state
-		setNavigationState();
-
-		classie.add(mallLevelsEl, 'levels--selected-' + selectedLevel);
-		
-		// the level element
-		var levelEl = mallLevels[selectedLevel - 1];
-		classie.add(levelEl, 'level--current');
-
-		
-		lassie.add(mallLevelsEl, 'levels--open');
-
-		// show level pins
-			
-		isExpanded = true;
-		
-		
-		// hide surroundings element
-		hideSurroundings();
 	}
 
 	/**
@@ -482,8 +445,6 @@
 		// disable mall nav ctrls
 		classie.add(levelDownCtrl, 'boxbutton--disabled');
 		classie.add(levelUpCtrl, 'boxbutton--disabled');
-
-		classie.add(containerEl,'opened');
 	}
 
 	/**
@@ -544,7 +505,6 @@
 		if( activeSpaceArea ) {
 			classie.remove(activeSpaceArea, 'map__space--selected');
 		}
-		classie.removeClass(containerEl,'opened');
 	}
 
 	/**
@@ -568,9 +528,7 @@
 	
 	function playVideo(spaceref){
 		var video = contentEl.querySelector('.content__item[data-space="' + spaceref + '"] .main-video');
-
 		if(video){
-			video.style.height = height() + 'px';
 			video.currentTime = 0;
 			video.ontimeupdate = currentVideoPosition;
 			video.addEventListener('ended', slideToContent);
@@ -598,7 +556,7 @@
 	function slideToContent(){
 		
 		var cont = contentEl.querySelector('.content__item[data-space="' + spaceref + '"]');
-		scrollTo(cont,height(),900);
+		scrollTo(cont,580,900);
 	}
 
 	function scrollTo(element, to, duration) {
@@ -613,15 +571,7 @@
 	    }, 10);
 	}
 
-	function width(){
-	   return window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth||0;
-	}
-	function height(){
-	   return window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight||0;
-	}
 
-	setTimeout(function(){
-		init();
-	},1)
+	init();
 
 })(window);
